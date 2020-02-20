@@ -37,6 +37,11 @@
 		4EF16F9B19D2550D0076AFCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF16F9A19D2550D0076AFCB /* AppDelegate.swift */; };
 		4EF16F9F19D2552E0076AFCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EF16F9D19D2552E0076AFCB /* Main.storyboard */; };
 		643703EF3C07D757D57BD718 /* Pods_Keyboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E977DDBBD7DC9A65E31E3C /* Pods_Keyboard.framework */; };
+		67366A3A23FE0FF5008EDE05 /* settingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67366A3823FE0FF4008EDE05 /* settingVC.swift */; };
+		67366A3B23FE0FF5008EDE05 /* tutorialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67366A3923FE0FF5008EDE05 /* tutorialVC.swift */; };
+		67366A3D23FE107E008EDE05 /* rootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67366A3C23FE107E008EDE05 /* rootVC.swift */; };
+		67366A3F23FE1487008EDE05 /* DesinableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67366A3E23FE1487008EDE05 /* DesinableView.swift */; };
+		67366A4123FE1491008EDE05 /* data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 67366A4023FE1491008EDE05 /* data.txt */; };
 		85ECEAB1400729478FE19AEF /* Pods_HostingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31510C041B13CCC6131A2DC5 /* Pods_HostingApp.framework */; };
 		E544EF5614C9DC43364D2B70 /* Pods_KeyboardFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F7E42577B70CC7133C7C79 /* Pods_KeyboardFramework.framework */; };
 /* End PBXBuildFile section */
@@ -75,7 +80,7 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		4E5B67C4196E07B300114361 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
@@ -86,7 +91,7 @@
 		};
 		4E807DC719461DC700D875D1 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
@@ -136,6 +141,13 @@
 		4EF16F9E19D2552E0076AFCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		584B22B2854CEAD743276CA3 /* Pods-Keyboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keyboard.release.xcconfig"; path = "Target Support Files/Pods-Keyboard/Pods-Keyboard.release.xcconfig"; sourceTree = "<group>"; };
 		6442848CA3F7B1B3D57FA6E7 /* Pods-KeyboardFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyboardFramework.release.xcconfig"; path = "Target Support Files/Pods-KeyboardFramework/Pods-KeyboardFramework.release.xcconfig"; sourceTree = "<group>"; };
+		67366A3823FE0FF4008EDE05 /* settingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingVC.swift; sourceTree = "<group>"; };
+		67366A3923FE0FF5008EDE05 /* tutorialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tutorialVC.swift; sourceTree = "<group>"; };
+		67366A3C23FE107E008EDE05 /* rootVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = rootVC.swift; path = ../../CustomKeyboard/CustomKeyboard/rootVC.swift; sourceTree = "<group>"; };
+		67366A3E23FE1487008EDE05 /* DesinableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesinableView.swift; sourceTree = "<group>"; };
+		67366A4023FE1491008EDE05 /* data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data.txt; sourceTree = "<group>"; };
+		67366A4423FE4216008EDE05 /* HostingApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HostingApp.entitlements; sourceTree = "<group>"; };
+		67366A4523FE43D3008EDE05 /* Keyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Keyboard.entitlements; sourceTree = "<group>"; };
 		B491B06F966D04F3D80A4215 /* Pods-Keyboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Keyboard.debug.xcconfig"; path = "Target Support Files/Pods-Keyboard/Pods-Keyboard.debug.xcconfig"; sourceTree = "<group>"; };
 		B8E977DDBBD7DC9A65E31E3C /* Pods_Keyboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Keyboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFA20A5A40E9619D9F4B7B6 /* Pods-HostingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HostingApp.debug.xcconfig"; path = "Target Support Files/Pods-HostingApp/Pods-HostingApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -270,8 +282,12 @@
 		4E807D9519461D9000D875D1 /* HostingApp */ = {
 			isa = PBXGroup;
 			children = (
+				67366A4423FE4216008EDE05 /* HostingApp.entitlements */,
 				4EF16F9A19D2550D0076AFCB /* AppDelegate.swift */,
 				4EF16F9519D255030076AFCB /* ViewController.swift */,
+				67366A3C23FE107E008EDE05 /* rootVC.swift */,
+				67366A3823FE0FF4008EDE05 /* settingVC.swift */,
+				67366A3923FE0FF5008EDE05 /* tutorialVC.swift */,
 				4EF16F9D19D2552E0076AFCB /* Main.storyboard */,
 				4EF16F9319D255030076AFCB /* Images.xcassets */,
 				4E807D9619461D9000D875D1 /* Supporting Files */,
@@ -282,6 +298,8 @@
 		4E807D9619461D9000D875D1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				67366A3E23FE1487008EDE05 /* DesinableView.swift */,
+				67366A4023FE1491008EDE05 /* data.txt */,
 				4EF16F9019D254E00076AFCB /* Background.jpg */,
 				4EF16F9219D254EA0076AFCB /* Info.plist */,
 			);
@@ -291,6 +309,7 @@
 		4E807DBA19461DC700D875D1 /* Keyboard */ = {
 			isa = PBXGroup;
 			children = (
+				67366A4523FE43D3008EDE05 /* Keyboard.entitlements */,
 				4E6AEE5219D2488B00931E8F /* Controller */,
 				4E6AEE5019D2486900931E8F /* Model */,
 				4E6AEE4F19D2484B00931E8F /* Views */,
@@ -436,15 +455,20 @@
 				TargetAttributes = {
 					4E807D9219461D9000D875D1 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 7V4WMR5FKB;
 						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
 					};
 					4E807DB819461DC700D875D1 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 7V4WMR5FKB;
 						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
 					};
 					4E8EF38019F95D74009CBF5D = {
 						CreatedOnToolsVersion = 6.1;
 						LastSwiftMigration = 0810;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -474,6 +498,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67366A4123FE1491008EDE05 /* data.txt in Resources */,
 				4EF16F9619D255030076AFCB /* Images.xcassets in Resources */,
 				4EF16F9F19D2552E0076AFCB /* Main.storyboard in Resources */,
 				4EF16F9119D254E00076AFCB /* Background.jpg in Resources */,
@@ -572,8 +597,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67366A3D23FE107E008EDE05 /* rootVC.swift in Sources */,
+				67366A3B23FE0FF5008EDE05 /* tutorialVC.swift in Sources */,
+				67366A3F23FE1487008EDE05 /* DesinableView.swift in Sources */,
 				4EF16F9B19D2550D0076AFCB /* AppDelegate.swift in Sources */,
 				4EF16F9819D255030076AFCB /* ViewController.swift in Sources */,
+				67366A3A23FE0FF5008EDE05 /* settingVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -751,10 +780,15 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = HostingApp/HostingApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7V4WMR5FKB;
 				INFOPLIST_FILE = HostingApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Archagon.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ks.spellexmedkeyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -766,10 +800,15 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = HostingApp/HostingApp.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7V4WMR5FKB;
 				INFOPLIST_FILE = HostingApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Archagon.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ks.spellexmedkeyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -779,10 +818,15 @@
 			baseConfigurationReference = B491B06F966D04F3D80A4215 /* Pods-Keyboard.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Keyboard/Keyboard.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7V4WMR5FKB;
 				INFOPLIST_FILE = Keyboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Archagon.HostingApp.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ks.spellexmedkeyboard.keyboard;
 				PRODUCT_NAME = Keyboard;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -793,10 +837,15 @@
 			baseConfigurationReference = 584B22B2854CEAD743276CA3 /* Pods-Keyboard.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Keyboard/Keyboard.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7V4WMR5FKB;
 				INFOPLIST_FILE = Keyboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Archagon.HostingApp.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ks.spellexmedkeyboard.keyboard;
 				PRODUCT_NAME = Keyboard;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -807,9 +856,13 @@
 			baseConfigurationReference = F73CEAE54AC232CB840E3151 /* Pods-KeyboardFramework.debug.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -823,8 +876,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "Archagon.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = Archagon.KeyboardFramework;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -838,9 +893,13 @@
 			baseConfigurationReference = 6442848CA3F7B1B3D57FA6E7 /* Pods-KeyboardFramework.release.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -849,8 +908,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "Archagon.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = Archagon.KeyboardFramework;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

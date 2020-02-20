@@ -463,15 +463,15 @@ class KeyboardLayout: NSObject, KeyboardKeyProtocol {
             }
             
             // images
-            if model.type == Key.KeyType.settings {
-                if let imageKey = key as? ImageKey {
-                    if imageKey.image == nil {
-                        let gearImage = UIImage(named: "gear")
-                        let settingsImageView = UIImageView(image: gearImage)
-                        imageKey.image = settingsImageView
-                    }
-                }
-            }
+//            if model.type == Key.KeyType.settings {
+//                if let imageKey = key as? ImageKey {
+//                    if imageKey.image == nil {
+//                        let gearImage = UIImage(named: "gear")
+//                        let settingsImageView = UIImageView(image: gearImage)
+//                        imageKey.image = settingsImageView
+//                    }
+//                }
+//            }
         }
         
         if model.type == Key.KeyType.shift {
@@ -552,15 +552,15 @@ class KeyboardLayout: NSObject, KeyboardKeyProtocol {
             key.downColor = nil
             key.textColor = (darkMode ? self.globalColors.darkModeTextColor : self.globalColors.lightModeTextColor)
             key.downTextColor = nil
-        case
-        Key.KeyType.return,
-        Key.KeyType.keyboardChange,
-        Key.KeyType.settings:
-            key.color = self.globalColors.specialKey(darkMode, solidColorMode: solidColorMode)
-            // TODO: actually a bit different
-            key.downColor = self.globalColors.regularKey(darkMode, solidColorMode: solidColorMode)
-            key.textColor = (darkMode ? self.globalColors.darkModeTextColor : self.globalColors.lightModeTextColor)
-            key.downTextColor = nil
+//        case
+//        Key.KeyType.return,
+//        Key.KeyType.keyboardChange,
+//        Key.KeyType.settings:
+//            key.color = self.globalColors.specialKey(darkMode, solidColorMode: solidColorMode)
+//            // TODO: actually a bit different
+//            key.downColor = self.globalColors.regularKey(darkMode, solidColorMode: solidColorMode)
+//            key.textColor = (darkMode ? self.globalColors.darkModeTextColor : self.globalColors.lightModeTextColor)
+//            key.downTextColor = nil
         default:
             break
         }

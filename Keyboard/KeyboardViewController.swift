@@ -20,6 +20,15 @@ let kPeriodShortcut = "kPeriodShortcut"
 let kKeyboardClicks = "kKeyboardClicks"
 let kSmallLowercase = "kSmallLowercase"
 
+let defaultValue_autocapslock = "autocapslock"
+let defaultValue_correction = "correction"
+let defaultValue_capitalize = "capitalize"
+let defaultValue_shortcut = "shortcut"
+let defaultValue_predictive = "predictive"
+
+let defaultsToKeyboard = UserDefaults(suiteName: "group.spellex")
+
+
 class KeyboardViewController: UIInputViewController {
     
     let backspaceDelay: TimeInterval = 0.5
@@ -98,7 +107,7 @@ class KeyboardViewController: UIInputViewController {
             kAutoCapitalization: true,
             kPeriodShortcut: true,
             kKeyboardClicks: false,
-            kSmallLowercase: false
+            kSmallLowercase: true
         ])
         
         self.keyboard = defaultKeyboard()
@@ -115,7 +124,9 @@ class KeyboardViewController: UIInputViewController {
     }
     
     required init?(coder: NSCoder) {
+        
         fatalError("NSCoding not supported")
+        
     }
     
     deinit {
@@ -217,7 +228,9 @@ class KeyboardViewController: UIInputViewController {
         }
         else {
             let uppercase = self.shiftState.uppercase()
-            let characterUppercase = (UserDefaults.standard.bool(forKey: kSmallLowercase) ? uppercase : true)
+//            let characterUppercase = (UserDefaults.standard.bool(forKey: kSmallLowercase) ? uppercase : true)
+            
+            let characterUppercase = ((defaultsToKeyboard?.bool(forKey: defaultValue_autocapslock))! ? uppercase : true)
             
             self.forwardingView.frame = orientationSavvyBounds
             self.layout?.layoutKeys(self.currentMode, uppercase: uppercase, characterUppercase: characterUppercase, shiftState: self.shiftState)
@@ -323,14 +336,17 @@ class KeyboardViewController: UIInputViewController {
                                               action: #selector(KeyboardViewController.advanceTapped(_:)),
                                               for: .touchUpInside)
                         case Key.KeyType.backspace:
-                            let cancelEvents: UIControl.Event = [UIControl.Event.touchUpInside, UIControl.Event.touchUpInside, UIControl.Event.touchDragExit, UIControl.Event.touchUpOutside, UIControl.Event.touchCancel, UIControl.Event.touchDragOutside]
                             
-                            keyView.addTarget(self,
-                                              action: #selector(KeyboardViewController.backspaceDown(_:)),
-                                              for: .touchDown)
-                            keyView.addTarget(self,
-                                              action: #selector(KeyboardViewController.backspaceUp(_:)),
-                                              for: cancelEvents)
+                                let cancelEvents: UIControl.Event = [UIControl.Event.touchUpInside, UIControl.Event.touchUpInside, UIControl.Event.touchDragExit, UIControl.Event.touchUpOutside, UIControl.Event.touchCancel, UIControl.Event.touchDragOutside]
+    
+                                keyView.addTarget(self,
+                                                  action: #selector(KeyboardViewController.backspaceDown(_:)),
+                                                  for: .touchDown)
+                                keyView.addTarget(self,
+                                                  action: #selector(KeyboardViewController.backspaceUp(_:)),
+                                                  for: cancelEvents)
+                          
+
                         case Key.KeyType.shift:
                             keyView.addTarget(self,
                                               action: #selector(KeyboardViewController.shiftDown(_:)),
@@ -345,10 +361,10 @@ class KeyboardViewController: UIInputViewController {
                             keyView.addTarget(self,
                                               action: #selector(KeyboardViewController.modeChangeTapped(_:)),
                                               for: .touchDown)
-                        case Key.KeyType.settings:
-                            keyView.addTarget(self,
-                                              action: #selector(KeyboardViewController.toggleSettings),
-                                              for: .touchUpInside)
+//                        case Key.KeyType.settings:
+//                            keyView.addTarget(self,
+//                                              action: #selector(KeyboardViewController.toggleSettings),
+//                                              for: .touchUpInside)
                         default:
                             break
                         }
@@ -505,7 +521,10 @@ class KeyboardViewController: UIInputViewController {
     }
     
     func handleAutoPeriod(_ key: Key) {
-        if !UserDefaults.standard.bool(forKey: kPeriodShortcut) {
+//        if !UserDefaults.standard.bool(forKey: kPeriodShortcut) {
+//            return
+//        }
+        if !(defaultsToKeyboard?.bool(forKey: defaultValue_shortcut))!{
             return
         }
         
@@ -657,7 +676,7 @@ class KeyboardViewController: UIInputViewController {
     }
     
     func updateKeyCaps(_ uppercase: Bool) {
-        let characterUppercase = (UserDefaults.standard.bool(forKey: kSmallLowercase) ? uppercase : true)
+        let characterUppercase = ((defaultsToKeyboard?.bool(forKey: defaultValue_autocapslock))! ? uppercase : true)
         self.layout?.updateKeyCaps(false, uppercase: uppercase, characterUppercase: characterUppercase, shiftState: self.shiftState)
     }
     
@@ -673,7 +692,7 @@ class KeyboardViewController: UIInputViewController {
         self.shiftWasMultitapped = false
         
         let uppercase = self.shiftState.uppercase()
-        let characterUppercase = (UserDefaults.standard.bool(forKey: kSmallLowercase) ? uppercase : true)
+        let characterUppercase = ((defaultsToKeyboard?.bool(forKey: defaultValue_autocapslock))! ? uppercase : true)
         self.layout?.layoutKeys(mode, uppercase: uppercase, characterUppercase: characterUppercase, shiftState: self.shiftState)
         
         self.setupKeys()
@@ -768,7 +787,12 @@ class KeyboardViewController: UIInputViewController {
     }
     
     func shouldAutoCapitalize() -> Bool {
-        if !UserDefaults.standard.bool(forKey: kAutoCapitalization) {
+        
+//        if !UserDefaults.standard.bool(forKey: kAutoCapitalization) {
+//            return false
+//        }
+
+        if !(defaultsToKeyboard?.bool(forKey: defaultValue_capitalize))!{
             return false
         }
         

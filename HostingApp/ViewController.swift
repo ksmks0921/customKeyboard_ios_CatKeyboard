@@ -10,15 +10,19 @@ import UIKit
 
 class HostingAppViewController: UIViewController {
     
+    
+    
+    
     @IBOutlet var stats: UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        
+////
 //        NotificationCenter.default.addObserver(self, selector: #selector(HostingAppViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
 //        NotificationCenter.default.addObserver(self, selector: #selector(HostingAppViewController.keyboardDidHide), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
 //        //NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillChangeFrame:"), name: UIKeyboardWillChangeFrameNotification, object: nil)
 //        NotificationCenter.default.addObserver(self, selector: #selector(HostingAppViewController.keyboardDidChangeFrame(_:)), name: NSNotification.Name.UIKeyboardDidChangeFrame, object: nil)
+        
     }
 
     override func didReceiveMemoryWarning() {

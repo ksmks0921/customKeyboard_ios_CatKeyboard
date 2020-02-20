@@ -66,7 +66,7 @@ class Key: Hashable {
         case period
         case space
         case `return`
-        case settings
+//        case settings
         case other
     }
     
@@ -104,8 +104,8 @@ class Key: Hashable {
                 return true
             case .return:
                 return true
-            case .settings:
-                return true
+//            case .settings:
+//                return true
             default:
                 return false
             }

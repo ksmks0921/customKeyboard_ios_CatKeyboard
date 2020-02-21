@@ -22,13 +22,14 @@ class CatboardBanner: ExtraView {
         super.init(globalColors: globalColors, darkMode: darkMode, solidColorMode: solidColorMode)
         
 //        self.addSubview(self.catSwitch)
-//        self.addSubview(self.catLabel)
+        self.addSubview(self.catLabel)
         
-        self.catSwitch.isOn = UserDefaults.standard.bool(forKey: kCatTypeEnabled)
-        self.catSwitch.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
-        self.catSwitch.addTarget(self, action: #selector(CatboardBanner.respondToSwitch), for: UIControl.Event.valueChanged)
+//        self.catSwitch.isOn = UserDefaults.standard.bool(forKey: kCatTypeEnabled)
+//        self.catSwitch.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+//        self.catSwitch.addTarget(self, action: #selector(CatboardBanner.respondToSwitch), for: UIControl.Event.valueChanged)
         
-        self.updateAppearance()
+//        self.updateAppearance()
+        
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -49,19 +50,19 @@ class CatboardBanner: ExtraView {
     
     @objc func respondToSwitch() {
         UserDefaults.standard.set(self.catSwitch.isOn, forKey: kCatTypeEnabled)
-        self.updateAppearance()
+//        self.updateAppearance()
     }
     
-    func updateAppearance() {
-        if self.catSwitch.isOn {
-            self.catLabel.text = "😺"
-            self.catLabel.alpha = 1
-        }
-        else {
-            self.catLabel.text = "🐱"
-            self.catLabel.alpha = 0.5
-        }
-        
-        self.catLabel.sizeToFit()
-    }
+//    func updateAppearance() {
+//        if self.catSwitch.isOn {
+//            self.catLabel.text = "😺"
+//            self.catLabel.alpha = 1
+//        }
+//        else {
+//            self.catLabel.text = "🐱"
+//            self.catLabel.alpha = 0.5
+//        }
+//
+//        self.catLabel.sizeToFit()
+//    }
 }

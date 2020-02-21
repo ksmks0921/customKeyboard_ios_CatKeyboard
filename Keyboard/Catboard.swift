@@ -59,7 +59,7 @@ class Catboard: KeyboardViewController {
                     return
                 }
 
-                textDocumentProxy.insertText("\(randomCat())")
+//                textDocumentProxy.insertText("\(randomCat())")
                 textDocumentProxy.insertText(" ")
                 textDocumentProxy.insertText(keyOutput)
                 return

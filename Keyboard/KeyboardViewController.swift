@@ -8,6 +8,7 @@
 
 import UIKit
 import AudioToolbox
+import KeyboardKit
 
 let metrics: [String:Double] = [
     "topBanner": 30
@@ -29,7 +30,28 @@ let defaultValue_predictive = "predictive"
 let defaultsToKeyboard = UserDefaults(suiteName: "group.spellex")
 
 
+
+var lastWordTyped: String?
+//let autoCorrectObject: AutoCorrect = AutoCorrect.init()
+
 class KeyboardViewController: UIInputViewController {
+    var userLexicon: UILexicon?
+    var currentWord: String? {
+      var lastWord: String?
+      // 1
+        if let stringBeforeCursor = textDocumentProxy.documentContextBeforeInput {
+        // 2
+        stringBeforeCursor.enumerateSubstrings(in: stringBeforeCursor.startIndex...,
+                                               options: .byWords)
+        { word, _, _, _ in
+          // 3
+          if let word = word {
+            lastWord = word
+          }
+        }
+      }
+      return lastWord
+    }
     
     let backspaceDelay: TimeInterval = 0.5
     let backspaceRepeat: TimeInterval = 0.07
@@ -41,6 +63,8 @@ class KeyboardViewController: UIInputViewController {
     
     var bannerView: ExtraView?
     var settingsView: ExtraView?
+    
+    
     
     var currentMode: Int {
         didSet {
@@ -214,6 +238,21 @@ class KeyboardViewController: UIInputViewController {
     }
     
     var lastLayoutBounds: CGRect?
+    
+    override func viewDidLoad() {
+        
+        requestSupplementaryLexicon { lexicon in
+            self.userLexicon = lexicon
+        }
+        
+        
+        
+        
+    }
+//    override func keyPressed(key: Key){
+//
+//    }
+    
     override func viewDidLayoutSubviews() {
         if view.bounds == CGRect.zero {
             return
@@ -230,7 +269,7 @@ class KeyboardViewController: UIInputViewController {
             let uppercase = self.shiftState.uppercase()
 //            let characterUppercase = (UserDefaults.standard.bool(forKey: kSmallLowercase) ? uppercase : true)
             
-            let characterUppercase = ((defaultsToKeyboard?.bool(forKey: defaultValue_autocapslock))! ? uppercase : true)
+            let characterUppercase = (!(defaultsToKeyboard?.bool(forKey: defaultValue_autocapslock))! ? uppercase : true)
             
             self.forwardingView.frame = orientationSavvyBounds
             self.layout?.layoutKeys(self.currentMode, uppercase: uppercase, characterUppercase: characterUppercase, shiftState: self.shiftState)
@@ -455,8 +494,27 @@ class KeyboardViewController: UIInputViewController {
     }
     
     func contextChanged() {
+        
+        requestAutocompleteSuggestions()
         self.updateCapsIfNeeded()
         self.autoPeriodState = .noSpace
+        
+        let proxy = self.textDocumentProxy as! UITextDocumentProxy
+       
+       
+        if let documentContext = proxy.documentContextBeforeInput as NSString? {
+            let length = documentContext.length
+            if length > 0 && (CharacterSet.letters as NSCharacterSet).characterIsMember(documentContext.character(at: length - 1)) {
+                let components = documentContext.components(separatedBy: NSCharacterSet.alphanumerics.inverted)
+                lastWordTyped = components[components.endIndex - 1]
+            }
+        }
+       
+           
+        
+        
+        
+        
     }
     
     func setHeight(_ height: CGFloat) {
@@ -501,7 +559,17 @@ class KeyboardViewController: UIInputViewController {
 
             // auto exit from special char subkeyboard
             if model.type == Key.KeyType.space || model.type == Key.KeyType.return {
+                
                 self.currentMode = 0
+                
+                if (defaultsToKeyboard?.bool(forKey: defaultValue_correction))!{
+                    attemptToReplaceCurrentWord()
+                }
+                
+               
+                
+                
+                
             }
             else if model.lowercaseOutput == "'" {
                 self.currentMode = 0
@@ -530,6 +598,7 @@ class KeyboardViewController: UIInputViewController {
         
         if self.autoPeriodState == .firstSpace {
             if key.type != Key.KeyType.space {
+                
                 self.autoPeriodState = .noSpace
                 return
             }
@@ -573,6 +642,7 @@ class KeyboardViewController: UIInputViewController {
         }
         else {
             if key.type == Key.KeyType.space {
+               
                 self.autoPeriodState = .firstSpace
             }
         }
@@ -676,7 +746,7 @@ class KeyboardViewController: UIInputViewController {
     }
     
     func updateKeyCaps(_ uppercase: Bool) {
-        let characterUppercase = ((defaultsToKeyboard?.bool(forKey: defaultValue_autocapslock))! ? uppercase : true)
+        let characterUppercase = (!(defaultsToKeyboard?.bool(forKey: defaultValue_autocapslock))! ? uppercase : true)
         self.layout?.updateKeyCaps(false, uppercase: uppercase, characterUppercase: characterUppercase, shiftState: self.shiftState)
     }
     
@@ -692,7 +762,7 @@ class KeyboardViewController: UIInputViewController {
         self.shiftWasMultitapped = false
         
         let uppercase = self.shiftState.uppercase()
-        let characterUppercase = ((defaultsToKeyboard?.bool(forKey: defaultValue_autocapslock))! ? uppercase : true)
+        let characterUppercase = (!(defaultsToKeyboard?.bool(forKey: defaultValue_autocapslock))! ? uppercase : true)
         self.layout?.layoutKeys(mode, uppercase: uppercase, characterUppercase: characterUppercase, shiftState: self.shiftState)
         
         self.setupKeys()
@@ -874,7 +944,25 @@ class KeyboardViewController: UIInputViewController {
     class var globalColors: GlobalColors.Type { get { return GlobalColors.self }}
     
     func keyPressed(_ key: Key) {
+        
         self.textDocumentProxy.insertText(key.outputForCase(self.shiftState.uppercase()))
+        
+        let keyOutput = key.outputForCase(self.shiftState.uppercase())
+        NSLog(String(keyOutput))
+        if keyOutput == " " || keyOutput == "\n" {
+        
+//            if(autoCorrectObject.autoCorrectTextDocument(self.textDocumentProxy)){
+//
+//            }
+        }
+        
+//        NSLog(String(ComboboardLogic.lengthOfLastWord(self.textDocumentProxy.documentContextBeforeInput))){
+//            if(ComboboardLogic.lengthOfLastWord(self.textDocumentProxy.documentContextBeforeInput) > 24){
+//                self.bannerView.wordMisspelled()
+//            }
+//
+//
+//        }
     }
     
     // a banner that sits in the empty space on top of the keyboard
@@ -891,4 +979,40 @@ class KeyboardViewController: UIInputViewController {
         settingsView.backButton?.addTarget(self, action: #selector(KeyboardViewController.toggleSettings), for: UIControl.Event.touchUpInside)
         return settingsView
     }
+    
+    let alerter = ToastAlert()
+    
+    lazy var autocompleteProvider = DemoAutocompleteSuggestionProvider()
+    
+    lazy var autocompleteToolbar: AutocompleteToolbar = {
+        AutocompleteToolbar(textDocumentProxy: textDocumentProxy)
+    }()
+ 
+}
+
+private extension KeyboardViewController {
+    
+  func attemptToReplaceCurrentWord() {
+    // 1
+    guard let entries = userLexicon?.entries,
+      let currentWord = currentWord?.lowercased() else {
+        return
+    }
+
+    // 2
+    let replacementEntries = entries.filter {
+      $0.userInput.lowercased() == currentWord
+    }
+
+    if let replacement = replacementEntries.first {
+      // 3
+      for _ in 0..<currentWord.count + 1 {
+        textDocumentProxy.deleteBackward()
+      }
+
+      // 4
+      textDocumentProxy.insertText(replacement.documentText)
+    }
+  }
+    
 }

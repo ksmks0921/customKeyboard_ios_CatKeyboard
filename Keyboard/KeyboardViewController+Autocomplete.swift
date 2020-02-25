@@ -13,11 +13,11 @@ extension KeyboardViewController {
     
     func requestAutocompleteSuggestions() {
         
-        let word = textDocumentProxy.currentWord ?? ""
-           autocompleteProvider.autocompleteSuggestions(for: word) { [weak self] in
-               self?.handleAutocompleteSuggestionsResult($0)
-            
-           }
+//        let word = textDocumentProxy.currentWord ?? ""
+//           autocompleteProvider.autocompleteSuggestions(for: word) { [weak self] in
+//               self?.handleAutocompleteSuggestionsResult($0)
+//
+//           }
        
         
     }
@@ -26,18 +26,18 @@ extension KeyboardViewController {
 //        input.alerter.alert(message: message, in: input.view, withDuration: 4)
 //    }
     
-    func resetAutocompleteSuggestions() {
-        autocompleteToolbar.reset()
-    }
+//    func resetAutocompleteSuggestions() {
+//        autocompleteToolbar.reset()
+//    }
     
 }
 
 private extension KeyboardViewController {
-    
-    func handleAutocompleteSuggestionsResult(_ result: AutocompleteResult) {
-        switch result {
-        case .failure(let error): print(error.localizedDescription)
-        case .success(let result): autocompleteToolbar.update(with: result)
-        }
-    }
+//
+//    func handleAutocompleteSuggestionsResult(_ result: AutocompleteResult) {
+//        switch result {
+//        case .failure(let error): print(error.localizedDescription)
+//        case .success(let result): autocompleteToolbar.update(with: result)
+//        }
+//    }
 }

@@ -249,9 +249,7 @@ class KeyboardViewController: UIInputViewController {
         
         
     }
-//    override func keyPressed(key: Key){
-//
-//    }
+
     
     override func viewDidLayoutSubviews() {
         if view.bounds == CGRect.zero {
@@ -278,6 +276,7 @@ class KeyboardViewController: UIInputViewController {
         }
         
         self.bannerView?.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: metric("topBanner"))
+    
         
         let newOrigin = CGPoint(x: 0, y: self.view.bounds.height - self.forwardingView.bounds.height)
         self.forwardingView.frame.origin = newOrigin
@@ -299,6 +298,7 @@ class KeyboardViewController: UIInputViewController {
     }
     
     override func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
+        
         self.forwardingView.resetTrackedViews()
         self.shiftStartingState = nil
         self.shiftWasMultitapped = false
@@ -311,6 +311,7 @@ class KeyboardViewController: UIInputViewController {
         }
         
         self.keyboardHeight = self.height(forOrientation: toInterfaceOrientation, withTopBanner: true)
+        
     }
     
     override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
@@ -357,6 +358,15 @@ class KeyboardViewController: UIInputViewController {
     //override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
     //    super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
     //}
+    @objc func suggestionTappedFirst(){
+//        textDocumentProxy.insertText("suggestion_1")
+    }
+    @objc func suggestionTappedSecond(){
+        
+    }
+    @objc func suggestionTappedThird(){
+        
+    }
     
     func setupKeys() {
         if self.layout == nil {
@@ -509,15 +519,11 @@ class KeyboardViewController: UIInputViewController {
                 lastWordTyped = components[components.endIndex - 1]
             }
         }
-       
-           
-        
-        
-        
         
     }
     
     func setHeight(_ height: CGFloat) {
+        
         if self.heightConstraint == nil {
             self.heightConstraint = NSLayoutConstraint(
                 item:self.view,
@@ -534,15 +540,18 @@ class KeyboardViewController: UIInputViewController {
         else {
             self.heightConstraint?.constant = height
         }
+        
     }
     
     func updateAppearances(_ appearanceIsDark: Bool) {
+        
         self.layout?.solidColorMode = self.solidColorMode()
         self.layout?.darkMode = appearanceIsDark
         self.layout?.updateKeyAppearance()
         
         self.bannerView?.darkMode = appearanceIsDark
         self.settingsView?.darkMode = appearanceIsDark
+        
     }
     
     @objc func highlightKey(_ sender: KeyboardKey) {
@@ -566,10 +575,7 @@ class KeyboardViewController: UIInputViewController {
                     attemptToReplaceCurrentWord()
                 }
                 
-               
-                
-                
-                
+
             }
             else if model.lowercaseOutput == "'" {
                 self.currentMode = 0
@@ -964,11 +970,19 @@ class KeyboardViewController: UIInputViewController {
 //
 //        }
     }
+    override func selectionWillChange(_ textInput: UITextInput?) {
+        super.selectionWillChange(textInput)
+//        autocompleteToolbar.reset()
+    }
+    override func selectionDidChange(_ textInput: UITextInput?) {
+        super.selectionDidChange(textInput)
+//        autocompleteToolbar.reset()
+    }
     
     // a banner that sits in the empty space on top of the keyboard
     func createBanner() -> ExtraView? {
         // note that dark mode is not yet valid here, so we just put false for clarity
-        //return ExtraView(globalColors: self.dynamicType.globalColors, darkMode: false, solidColorMode: self.solidColorMode())
+        return ExtraView(globalColors: type(of: self).globalColors, darkMode: false, solidColorMode: self.solidColorMode())
         return nil
     }
     
@@ -984,9 +998,9 @@ class KeyboardViewController: UIInputViewController {
     
     lazy var autocompleteProvider = DemoAutocompleteSuggestionProvider()
     
-    lazy var autocompleteToolbar: AutocompleteToolbar = {
-        AutocompleteToolbar(textDocumentProxy: textDocumentProxy)
-    }()
+//    lazy var autocompleteToolbar: AutocompleteToolbar = {
+//        AutocompleteToolbar(textDocumentProxy: textDocumentProxy)
+//    }()
  
 }
 

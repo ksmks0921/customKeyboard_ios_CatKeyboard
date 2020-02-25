@@ -15,21 +15,51 @@ set the name of your KeyboardViewController subclass in the Info.plist file.
 
 let kCatTypeEnabled = "kCatTypeEnabled"
 
+protocol listenSuggestionClick {
+    func listenTo(_ suggestion: String)
+}
+
+
 class Catboard: KeyboardViewController {
     
     let takeDebugScreenshot: Bool = false
+    var delegate: listenKeyClick?
+    var catboardBanner: CatboardBanner?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        
         UserDefaults.standard.register(defaults: [kCatTypeEnabled: true])
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+        
+    }
+    func getPredictive(){
+        
+        guard let entries = userLexicon?.entries,
+           let currentWord = currentWord?.lowercased() else {
+             return
+         }
+
+         let replacementEntries = entries.filter {
+           $0.userInput.lowercased() == currentWord
+         }
+
+         if let replacement = replacementEntries.first {
+
+            catboardBanner?.suggestion_1?.setTitle(replacement.documentText, for: .normal)
+         }
+        
+    }
     override func keyPressed(_ key: Key) {
+       
         let textDocumentProxy = self.textDocumentProxy
+        getPredictive()
+
+       
         
         let keyOutput = key.outputForCase(self.shiftState.uppercase())
         
@@ -92,12 +122,18 @@ class Catboard: KeyboardViewController {
                     }
                 }
             }
+                    
         }
     }
     
     override func createBanner() -> ExtraView? {
-        return CatboardBanner(globalColors: type(of: self).globalColors, darkMode: false, solidColorMode: self.solidColorMode())
+        
+        catboardBanner = CatboardBanner(globalColors: type(of: self).globalColors, darkMode: false, solidColorMode: self.solidColorMode())
+        catboardBanner!.delegate = self
+        return catboardBanner
+
     }
+
     
     @objc func takeScreenshotDelay() {
         Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(Catboard.takeScreenshot), userInfo: nil, repeats: false)
@@ -144,4 +180,10 @@ func randomCat() -> String {
     let character = cats[index]
     
     return String(character)
+}
+
+extension Catboard: listenSuggestionClick {
+    func listenTo(_ suggestion: String) {
+        self.textDocumentProxy.insertText(suggestion)
+    }
 }

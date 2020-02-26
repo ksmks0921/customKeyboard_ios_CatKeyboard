@@ -8,7 +8,7 @@
 
 import UIKit
 import AudioToolbox
-import KeyboardKit
+//import KeyboardKit
 
 let metrics: [String:Double] = [
     "topBanner": 30
@@ -571,10 +571,12 @@ class KeyboardViewController: UIInputViewController {
                 
                 self.currentMode = 0
                 
+//                if (defaultsToKeyboard?.bool(forKey: defaultValue_correction))!{
+//                    attemptToReplaceCurrentWord()
+//                }
                 if (defaultsToKeyboard?.bool(forKey: defaultValue_correction))!{
                     attemptToReplaceCurrentWord()
                 }
-                
 
             }
             else if model.lowercaseOutput == "'" {
@@ -994,9 +996,9 @@ class KeyboardViewController: UIInputViewController {
         return settingsView
     }
     
-    let alerter = ToastAlert()
-    
-    lazy var autocompleteProvider = DemoAutocompleteSuggestionProvider()
+//    let alerter = ToastAlert()
+//    
+//    lazy var autocompleteProvider = DemoAutocompleteSuggestionProvider()
     
 //    lazy var autocompleteToolbar: AutocompleteToolbar = {
 //        AutocompleteToolbar(textDocumentProxy: textDocumentProxy)
@@ -1007,26 +1009,58 @@ class KeyboardViewController: UIInputViewController {
 private extension KeyboardViewController {
     
   func attemptToReplaceCurrentWord() {
-    // 1
-    guard let entries = userLexicon?.entries,
-      let currentWord = currentWord?.lowercased() else {
+//    // 1
+//    guard let entries = userLexicon?.entries,
+//      let currentWord = currentWord?.lowercased() else {
+//        return
+//    }
+//
+//    // 2
+//    let replacementEntries = entries.filter {
+//      $0.userInput.lowercased() == currentWord
+//    }
+//
+//    if let replacement = replacementEntries.first {
+//      // 3
+//      for _ in 0..<currentWord.count + 1 {
+//        textDocumentProxy.deleteBackward()
+//      }
+//
+//      // 4
+//      textDocumentProxy.insertText(replacement.documentText)
+//    }
+    
+       guard let entries = userLexicon?.entries,
+       let currentWord = currentWord?.lowercased() else {
         return
-    }
+       }
 
-    // 2
-    let replacementEntries = entries.filter {
-      $0.userInput.lowercased() == currentWord
-    }
+   
+       for _ in 0..<currentWord.count + 1{
+          textDocumentProxy.deleteBackward()
+       }
+    
+       let textChecker = UITextChecker()
+       let misspelledRange =
+        textChecker.rangeOfMisspelledWord(in: currentWord,
+                                          range: NSRange(0..<currentWord.utf16.count),
+                                             startingAt: 0,
+                                             wrap: false,
+                                             language: "en_US")
 
-    if let replacement = replacementEntries.first {
-      // 3
-      for _ in 0..<currentWord.count + 1 {
-        textDocumentProxy.deleteBackward()
-      }
-
-      // 4
-      textDocumentProxy.insertText(replacement.documentText)
-    }
+       if misspelledRange.location != NSNotFound,
+           let firstGuess = textChecker.guesses(forWordRange: misspelledRange,
+                                                in: currentWord,
+                                                language: "en_US")?.first
+           
+       {
+           textDocumentProxy.insertText(firstGuess)
+           print("First guess: \(firstGuess)") // First guess: hipster
+       } else {
+           
+           print("Not found")
+       }
+    
   }
     
 }

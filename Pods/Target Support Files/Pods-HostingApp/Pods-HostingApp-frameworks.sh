@@ -161,10 +161,22 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/KeyboardKit/KeyboardKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/AFIncrementalStore/AFIncrementalStore.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/InflectorKit/InflectorKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/TOMSCoreDataManager/TOMSCoreDataManager.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/TOMSMorphingLabel/TOMSMorphingLabel.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/TOMSSuggestionBar/TOMSSuggestionBar.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/TransformerKit/TransformerKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/KeyboardKit/KeyboardKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/AFIncrementalStore/AFIncrementalStore.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/InflectorKit/InflectorKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/TOMSCoreDataManager/TOMSCoreDataManager.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/TOMSMorphingLabel/TOMSMorphingLabel.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/TOMSSuggestionBar/TOMSSuggestionBar.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/TransformerKit/TransformerKit.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

@@ -7,7 +7,8 @@ target 'HostingApp' do
 
   # Pods for HostingApp
 
-  pod 'KeyboardKit'
+
+  
 end
 
 target 'Keyboard' do
@@ -15,7 +16,7 @@ target 'Keyboard' do
   use_frameworks!
   
   # Pods for Keyboard
-  pod 'KeyboardKit'
+
 end
 
 target 'KeyboardFramework' do

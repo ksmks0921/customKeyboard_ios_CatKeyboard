@@ -13,9 +13,7 @@ This is the demo banner. The banner is needed so that the top row popups have so
 with something (or leave it blank if you like.)
 */
 
-protocol listenKeyClick {
-    func listenToSuggestion(_ key: String)
-}
+
 
 class CatboardBanner: ExtraView {
     
@@ -125,11 +123,4 @@ class CatboardBanner: ExtraView {
     
 }
 
-extension CatboardBanner: listenKeyClick {
-    
-    func listenToSuggestion(_ key: String) {
-        self.suggestion_1?.setTitle(key, for: .normal)
-    }
-    
-   
-}
+

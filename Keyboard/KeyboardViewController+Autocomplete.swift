@@ -6,7 +6,7 @@
 //  Copyright © 2018 Daniel Saidi. All rights reserved.
 //
 
-import KeyboardKit
+
 import UIKit
 
 extension KeyboardViewController {

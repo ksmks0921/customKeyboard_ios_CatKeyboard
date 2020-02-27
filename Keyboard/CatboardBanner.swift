@@ -54,20 +54,20 @@ class CatboardBanner: ExtraView {
     
         suggestion_1 = UIButton(frame: CGRect(x: 0, y: 0, width: self.layer.frame.width / 3, height: self.layer.frame.height))
         suggestion_1!.center = CGPoint(x: self.layer.frame.width / 6, y: self.layer.frame.height / 2)
-        suggestion_1!.setTitle("suggestion_1", for: .normal)
+//        suggestion_1!.setTitle("suggestion_1", for: .normal)
         suggestion_1?.setTitleColor(UIColor.black, for: .normal)
         self.addSubview(suggestion_1!)
         
         
         suggestion_2 = UIButton(frame: CGRect(x: self.layer.frame.width / 3, y: 0, width: self.layer.frame.width / 3, height: self.layer.frame.height))
-        suggestion_2!.setTitle("suggestion_2", for: .normal)
+//        suggestion_2!.setTitle("suggestion_2", for: .normal)
         suggestion_2?.setTitleColor(UIColor.black, for: .normal)
         self.addSubview(suggestion_2!)
         
      
         suggestion_3 = UIButton(frame: CGRect(x: self.layer.frame.width / 3 * 2, y: 0, width: self.layer.frame.width / 3, height: self.layer.frame.height))
 
-        suggestion_3!.setTitle("suggestion_3", for: .normal)
+//        suggestion_3!.setTitle("suggestion_3", for: .normal)
         suggestion_3?.setTitleColor(UIColor.black, for: .normal)
         self.addSubview(suggestion_3!)
         

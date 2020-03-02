@@ -575,9 +575,9 @@ class KeyboardViewController: UIInputViewController {
                     if (defaultsToKeyboard?.bool(forKey: defaultValue_correction))!{
                         attemptToReplaceCurrentWord()
                     }
-                if currentWord == "yjmkis" {
-                    UITextChecker.learnWord("yjmkis")
-                }
+//                if currentWord == "yjmkiss" {
+//                    UITextChecker.learnWord("yjmkiss")
+//                }
              
                 
                 

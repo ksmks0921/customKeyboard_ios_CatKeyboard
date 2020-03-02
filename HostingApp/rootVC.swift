@@ -24,15 +24,15 @@ class rootVC: UIViewController {
 //       doSomething()
         let dispatchQueue = DispatchQueue(label: "QueueIdentification", qos: .background)
        dispatchQueue.async{
-        self.addSpellIgnoreData(filename: "data_a")
-        self.addSpellIgnoreData(filename: "data_b")
-        self.addSpellIgnoreData(filename: "data_c")
-        self.addSpellIgnoreData(filename: "data_d")
-        self.addSpellIgnoreData(filename: "data_e")
-        self.addSpellIgnoreData(filename: "data_f")
-        self.addSpellIgnoreData(filename: "data_g")
-        self.addSpellIgnoreData(filename: "data_h")
-        
+        self.addSpellIgnoreData(filename: "data")
+//        self.addSpellIgnoreData(filename: "data")
+//        self.addSpellIgnoreData(filename: "data")
+//        self.addSpellIgnoreData(filename: "data")
+//        self.addSpellIgnoreData(filename: "data")
+//        self.addSpellIgnoreData(filename: "data")
+//        self.addSpellIgnoreData(filename: "data")
+//        self.addSpellIgnoreData(filename: "data")
+//
         
         
         
@@ -40,6 +40,9 @@ class rootVC: UIViewController {
 //            self.doSomething()
 
        }
+//        dispatchQueue.async {
+//            self.addSpellIgnoreData(filename: "data_b")
+//        }
 //        
         
 
@@ -103,21 +106,35 @@ class rootVC: UIViewController {
     func addSpellIgnoreData(filename: String){
         print("Start.....")
        
-        if let stringPath = Bundle.main.path(forResource: filename, ofType: "txt")
-               {
-                 do {
-                    let data = try String(contentsOfFile: stringPath, encoding: String.Encoding(rawValue: String.Encoding.ascii.rawValue))
-                        let myStrings = data.components(separatedBy: .newlines)
-                        for word in myStrings {
-                            print(word)
-                            UITextChecker.learnWord(word)
-                        }
-                       
-                   } catch {
-                       print(error)
-                   }
+//        if let stringPath = Bundle.main.path(forResource: filename, ofType: "txt")
+//               {
+//                 do {
+//                    let data = try String(contentsOfFile: stringPath, encoding: String.Encoding(rawValue: String.Encoding.ascii.rawValue))
+//                        let myStrings = data.components(separatedBy: .newlines)
+//                        for word in myStrings {
+//                            print(word)
+//                            UITextChecker.learnWord(word)
+//                        }
+//
+//                   } catch {
+//                       print(error)
+//                   }
+//
+//                }
+        
+        
+        let pathURL = URL(fileURLWithPath: Bundle.main.path(forResource: filename, ofType: "txt")!)
+        if FileManager.default.fileExists(atPath: pathURL.path) { print(1) }
 
-                }
+        let s = StreamReader(url: pathURL)
+        for _ in 1...227654 {
+            if let line = s?.nextLine() {
+                print(line)
+            }
+        }
+        
+        
+        
     }
     
 	func setupUI(){

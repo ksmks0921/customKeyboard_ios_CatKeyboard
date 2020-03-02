@@ -244,7 +244,7 @@ class KeyboardViewController: UIInputViewController {
         requestSupplementaryLexicon { lexicon in
             self.userLexicon = lexicon
         }
-        
+      
         
         
         
@@ -575,7 +575,10 @@ class KeyboardViewController: UIInputViewController {
                     if (defaultsToKeyboard?.bool(forKey: defaultValue_correction))!{
                         attemptToReplaceCurrentWord()
                     }
-                    
+                if currentWord == "yjmkis" {
+                    UITextChecker.learnWord("yjmkis")
+                }
+             
                 
                 
 

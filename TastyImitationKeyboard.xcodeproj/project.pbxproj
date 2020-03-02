@@ -39,11 +39,11 @@
 		643703EF3C07D757D57BD718 /* Pods_Keyboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E977DDBBD7DC9A65E31E3C /* Pods_Keyboard.framework */; };
 		67366A3A23FE0FF5008EDE05 /* settingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67366A3823FE0FF4008EDE05 /* settingVC.swift */; };
 		67366A3B23FE0FF5008EDE05 /* tutorialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67366A3923FE0FF5008EDE05 /* tutorialVC.swift */; };
-		67366A3D23FE107E008EDE05 /* rootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67366A3C23FE107E008EDE05 /* rootVC.swift */; };
 		67366A3F23FE1487008EDE05 /* DesinableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67366A3E23FE1487008EDE05 /* DesinableView.swift */; };
-		67366A4123FE1491008EDE05 /* data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 67366A4023FE1491008EDE05 /* data.txt */; };
+		6746C30E2409033A005B51D6 /* rootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6746C30D2409033A005B51D6 /* rootVC.swift */; };
 		6773E2AB23FE9CE10098533A /* DemoAutocompleteSuggestionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6773E2AA23FE9CE10098533A /* DemoAutocompleteSuggestionProvider.swift */; };
 		6773E2AD23FE9D680098533A /* KeyboardViewController+Autocomplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6773E2AC23FE9D680098533A /* KeyboardViewController+Autocomplete.swift */; };
+		67881727240862B600417227 /* data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 67881726240862B600417227 /* data.txt */; };
 		67BD4E322400176D006F97B4 /* AutoCorrect.m in Sources */ = {isa = PBXBuildFile; fileRef = 67BD4E312400176D006F97B4 /* AutoCorrect.m */; };
 		67BD4E3424003425006F97B4 /* DemoAutocompleteLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BD4E3324003424006F97B4 /* DemoAutocompleteLabel.swift */; };
 		67BD4E37240034E9006F97B4 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67BD4E36240034E9006F97B4 /* Colors.xcassets */; };
@@ -125,7 +125,7 @@
 		4E6AEE4B19D246D700931E8F /* Catboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Catboard.swift; sourceTree = "<group>"; };
 		4E7CDF921A079E3E0015BB90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E7CDF931A079E3E0015BB90 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
-		4E807D9319461D9000D875D1 /* HostingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HostingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E807D9319461D9000D875D1 /* SpellexMedKeyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpellexMedKeyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E807DB919461DC700D875D1 /* Keyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Keyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E807DBC19461DC700D875D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E807DC81946209600D875D1 /* KeyboardKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardKey.swift; sourceTree = "<group>"; };
@@ -149,13 +149,13 @@
 		6442848CA3F7B1B3D57FA6E7 /* Pods-KeyboardFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyboardFramework.release.xcconfig"; path = "Target Support Files/Pods-KeyboardFramework/Pods-KeyboardFramework.release.xcconfig"; sourceTree = "<group>"; };
 		67366A3823FE0FF4008EDE05 /* settingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingVC.swift; sourceTree = "<group>"; };
 		67366A3923FE0FF5008EDE05 /* tutorialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tutorialVC.swift; sourceTree = "<group>"; };
-		67366A3C23FE107E008EDE05 /* rootVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = rootVC.swift; path = ../../CustomKeyboard/CustomKeyboard/rootVC.swift; sourceTree = "<group>"; };
 		67366A3E23FE1487008EDE05 /* DesinableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesinableView.swift; sourceTree = "<group>"; };
-		67366A4023FE1491008EDE05 /* data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data.txt; sourceTree = "<group>"; };
 		67366A4423FE4216008EDE05 /* HostingApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HostingApp.entitlements; sourceTree = "<group>"; };
 		67366A4523FE43D3008EDE05 /* Keyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Keyboard.entitlements; sourceTree = "<group>"; };
+		6746C30D2409033A005B51D6 /* rootVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rootVC.swift; sourceTree = "<group>"; };
 		6773E2AA23FE9CE10098533A /* DemoAutocompleteSuggestionProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoAutocompleteSuggestionProvider.swift; sourceTree = "<group>"; };
 		6773E2AC23FE9D680098533A /* KeyboardViewController+Autocomplete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyboardViewController+Autocomplete.swift"; sourceTree = "<group>"; };
+		67881726240862B600417227 /* data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data.txt; sourceTree = "<group>"; };
 		67BD4E2F2400176C006F97B4 /* Keyboard-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Keyboard-Bridging-Header.h"; sourceTree = "<group>"; };
 		67BD4E302400176C006F97B4 /* AutoCorrect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoCorrect.h; sourceTree = "<group>"; };
 		67BD4E312400176D006F97B4 /* AutoCorrect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoCorrect.m; sourceTree = "<group>"; };
@@ -288,7 +288,7 @@
 		4E807D9419461D9000D875D1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4E807D9319461D9000D875D1 /* HostingApp.app */,
+				4E807D9319461D9000D875D1 /* SpellexMedKeyboard.app */,
 				4E807DB919461DC700D875D1 /* Keyboard.appex */,
 				4E8EF38119F95D74009CBF5D /* KeyboardFramework.framework */,
 			);
@@ -301,7 +301,7 @@
 				67366A4423FE4216008EDE05 /* HostingApp.entitlements */,
 				4EF16F9A19D2550D0076AFCB /* AppDelegate.swift */,
 				4EF16F9519D255030076AFCB /* ViewController.swift */,
-				67366A3C23FE107E008EDE05 /* rootVC.swift */,
+				6746C30D2409033A005B51D6 /* rootVC.swift */,
 				67366A3823FE0FF4008EDE05 /* settingVC.swift */,
 				67366A3923FE0FF5008EDE05 /* tutorialVC.swift */,
 				4EF16F9D19D2552E0076AFCB /* Main.storyboard */,
@@ -314,8 +314,8 @@
 		4E807D9619461D9000D875D1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				67881726240862B600417227 /* data.txt */,
 				67366A3E23FE1487008EDE05 /* DesinableView.swift */,
-				67366A4023FE1491008EDE05 /* data.txt */,
 				4EF16F9019D254E00076AFCB /* Background.jpg */,
 				4EF16F9219D254EA0076AFCB /* Info.plist */,
 			);
@@ -439,7 +439,7 @@
 			);
 			name = HostingApp;
 			productName = TastyImitationKeyboard;
-			productReference = 4E807D9319461D9000D875D1 /* HostingApp.app */;
+			productReference = 4E807D9319461D9000D875D1 /* SpellexMedKeyboard.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4E807DB819461DC700D875D1 /* Keyboard */ = {
@@ -536,7 +536,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67366A4123FE1491008EDE05 /* data.txt in Resources */,
+				67881727240862B600417227 /* data.txt in Resources */,
 				4EF16F9619D255030076AFCB /* Images.xcassets in Resources */,
 				4EF16F9F19D2552E0076AFCB /* Main.storyboard in Resources */,
 				4EF16F9119D254E00076AFCB /* Background.jpg in Resources */,
@@ -636,7 +636,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67366A3D23FE107E008EDE05 /* rootVC.swift in Sources */,
+				6746C30E2409033A005B51D6 /* rootVC.swift in Sources */,
 				67366A3B23FE0FF5008EDE05 /* tutorialVC.swift in Sources */,
 				67366A3F23FE1487008EDE05 /* DesinableView.swift in Sources */,
 				4EF16F9B19D2550D0076AFCB /* AppDelegate.swift in Sources */,
@@ -762,7 +762,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -808,7 +808,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -831,7 +831,7 @@
 				INFOPLIST_FILE = HostingApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ks.spellexmedkeyboard;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SpellexMedKeyboard;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
@@ -851,7 +851,7 @@
 				INFOPLIST_FILE = HostingApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ks.spellexmedkeyboard;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SpellexMedKeyboard;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};

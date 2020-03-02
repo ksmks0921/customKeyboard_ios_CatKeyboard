@@ -16,34 +16,20 @@ class rootVC: UIViewController {
     @IBOutlet weak var tutorialBtn: UIButton!
     
     @IBOutlet weak var settingBtn: UIButton!
+    let defaults = UserDefaults(suiteName: "group.spellex")
+    let words = "words"
+    var allWords: [String] = []
     var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier.invalid
     override func viewDidLoad() {
 		super.viewDidLoad()
-          
-//       registerBackgroundTask()
-//       doSomething()
-        let dispatchQueue = DispatchQueue(label: "QueueIdentification", qos: .background)
-       dispatchQueue.async{
-        self.addSpellIgnoreData(filename: "data")
-//        self.addSpellIgnoreData(filename: "data")
-//        self.addSpellIgnoreData(filename: "data")
-//        self.addSpellIgnoreData(filename: "data")
-//        self.addSpellIgnoreData(filename: "data")
-//        self.addSpellIgnoreData(filename: "data")
-//        self.addSpellIgnoreData(filename: "data")
-//        self.addSpellIgnoreData(filename: "data")
-//
-        
-        
-        
-//            self.registerBackgroundTask()
-//            self.doSomething()
 
-       }
-//        dispatchQueue.async {
-//            self.addSpellIgnoreData(filename: "data_b")
-//        }
-//        
+        let dispatchQueue = DispatchQueue(label: "QueueIdentification", qos: .background)
+        dispatchQueue.async{
+            self.addSpellIgnoreData(filename: "data")
+            self.defaults?.set(self.allWords, forKey: self.words)
+            print(self.allWords.count)
+
+        }
         
 
         
@@ -72,36 +58,7 @@ class rootVC: UIViewController {
 	@IBAction func dismissKeyboardPressed(_ sender: Any) {
             instructions.resignFirstResponder()
 	}
-//
-//    func doSomething() {
-//
-//            switch UIApplication.shared.applicationState {
-//            case .active:
-//              print("App is active.")
-////                        addSpellIgnoreData()
-//            case .background:
-////                      addSpellIgnoreData()
-//              print("App is in background.")
-//              print("Background time remaining = \(UIApplication.shared.backgroundTimeRemaining) seconds")
-//            case .inactive:
-//              break
-//
-//                }
-//    }
-//
-//    func registerBackgroundTask() {
-//        backgroundTask = UIApplication.shared.beginBackgroundTask (withName: "Add Task") { [weak self] in
-//            self?.endBackgroundTask()
-//
-//        }
-//        assert(backgroundTask != UIBackgroundTaskIdentifier.invalid)
-//    }
-//
-//    func endBackgroundTask() {
-//        print("Background task ended.")
-//        UIApplication.shared.endBackgroundTask(backgroundTask)
-//        backgroundTask = UIBackgroundTaskIdentifier.invalid
-//    }
+
     
     func addSpellIgnoreData(filename: String){
         print("Start.....")
@@ -129,6 +86,7 @@ class rootVC: UIViewController {
         let s = StreamReader(url: pathURL)
         for _ in 1...227654 {
             if let line = s?.nextLine() {
+                allWords.append(line)
                 print(line)
             }
         }

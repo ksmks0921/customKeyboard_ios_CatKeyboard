@@ -16,7 +16,7 @@ class settingVC: UIViewController {
     
     @IBOutlet weak var shortcutSwitch: UISwitch!
     @IBOutlet weak var predictiveSwitch: UISwitch!
-    
+   
     
     let defaults = UserDefaults(suiteName: "group.spellex")
     let autocapslock = "autocapslock"
@@ -31,6 +31,7 @@ class settingVC: UIViewController {
         setupUI()
         
         
+        
         setupStorageVariable()
        
     }
@@ -38,11 +39,11 @@ class settingVC: UIViewController {
         
         
         
-        let defaultValue_autocapslock = [autocapslock : true]
-        let defaultValue_correction = [correction : true]
-        let defaultValue_capitalize = [capitalize : true]
-        let defaultValue_shortcut = [shortcut : true]
-        let defaultValue_predictive = [predictive : true]
+        let defaultValue_autocapslock = [autocapslock : false]
+        let defaultValue_correction = [correction : false]
+        let defaultValue_capitalize = [capitalize : false]
+        let defaultValue_shortcut = [shortcut : false]
+        let defaultValue_predictive = [predictive : false]
         
         defaults?.register(defaults: defaultValue_autocapslock)
         defaults?.register(defaults: defaultValue_correction)

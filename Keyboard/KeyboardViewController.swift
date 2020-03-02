@@ -26,6 +26,7 @@ let defaultValue_correction = "correction"
 let defaultValue_capitalize = "capitalize"
 let defaultValue_shortcut = "shortcut"
 var defaultValue_predictive = "predictive"
+var words = "words"
 let new_word_space = false
 let defaultsToKeyboard = UserDefaults(suiteName: "group.spellex")
 

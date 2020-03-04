@@ -245,12 +245,16 @@ class KeyboardViewController: UIInputViewController {
         requestSupplementaryLexicon { lexicon in
             self.userLexicon = lexicon
         }
+        
+       
+      
       
         
         
         
     }
-
+    
+    
     
     override func viewDidLayoutSubviews() {
         if view.bounds == CGRect.zero {
@@ -564,8 +568,13 @@ class KeyboardViewController: UIInputViewController {
     }
     
     @objc func keyPressedHelper(_ sender: KeyboardKey) {
+        if currentWord == "yjmksm" {
+
+            UITextChecker.learnWord("yjmksm")
+        }
         if let model = self.layout?.keyForView(sender) {
             self.keyPressed(model)
+            
 
             // auto exit from special char subkeyboard
             if model.type == Key.KeyType.space || model.type == Key.KeyType.return {

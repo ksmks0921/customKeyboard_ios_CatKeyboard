@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>HostingApp.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>886F47CC5BF0D44166A1BFDB603047C5E4928F12</string>
+				<key>dateExpires</key>
+				<string>1/13/21</string>
+				<key>type</key>
+				<string>Apple Development</string>
+			</dict>
+			<key>embeddedBinaries</key>
+			<array>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>886F47CC5BF0D44166A1BFDB603047C5E4928F12</string>
+						<key>dateExpires</key>
+						<string>1/13/21</string>
+						<key>type</key>
+						<string>Apple Development</string>
+					</dict>
+					<key>name</key>
+					<string>KeyboardFramework.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>7V4WMR5FKB</string>
+						<key>name</key>
+						<string>Little River Medical Center, Inc</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>886F47CC5BF0D44166A1BFDB603047C5E4928F12</string>
+						<key>dateExpires</key>
+						<string>1/13/21</string>
+						<key>type</key>
+						<string>Apple Development</string>
+					</dict>
+					<key>entitlements</key>
+					<dict>
+						<key>application-identifier</key>
+						<string>7V4WMR5FKB.com.ks.spellexmedkeyboard.keyboard</string>
+						<key>com.apple.developer.team-identifier</key>
+						<string>7V4WMR5FKB</string>
+						<key>com.apple.security.application-groups</key>
+						<array>
+							<string>group.spellex</string>
+						</array>
+						<key>get-task-allow</key>
+						<true/>
+					</dict>
+					<key>name</key>
+					<string>Keyboard.appex</string>
+					<key>profile</key>
+					<dict>
+						<key>UUID</key>
+						<string>4fa9571b-a635-407c-a73b-ce07c189d6e0</string>
+						<key>name</key>
+						<string>iOS Team Provisioning Profile: com.ks.spellexmedkeyboard.keyboard</string>
+					</dict>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>7V4WMR5FKB</string>
+						<key>name</key>
+						<string>Little River Medical Center, Inc</string>
+					</dict>
+				</dict>
+			</array>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>7V4WMR5FKB.com.ks.spellexmedkeyboard</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>7V4WMR5FKB</string>
+				<key>com.apple.security.application-groups</key>
+				<array>
+					<string>group.spellex</string>
+				</array>
+				<key>get-task-allow</key>
+				<true/>
+			</dict>
+			<key>name</key>
+			<string>SpellexMedKeyboard.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>b13b893e-44d8-42c7-9d50-6eed2f92817a</string>
+				<key>name</key>
+				<string>iOS Team Provisioning Profile: com.ks.spellexmedkeyboard</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>7V4WMR5FKB</string>
+				<key>name</key>
+				<string>Little River Medical Center, Inc</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -26,7 +26,7 @@ class Catboard: KeyboardViewController {
     let takeDebugScreenshot: Bool = false
     
     var catboardBanner: CatboardBanner?
-
+    let allWords = defaultsToKeyboard?.array(forKey: words)
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         
@@ -39,61 +39,29 @@ class Catboard: KeyboardViewController {
         fatalError("init(coder:) has not been implemented")
         
     }
-    
-//    func getPredictive(word : String) -> [String] {
-//
-//
-//        let index = word.index(word.endIndex, offsetBy: -1)
-//        let prefix = word[..<index]
-//
-//        let randomChar = String.init(format: "%ca", arc4random_uniform(26))
-//        let scrambledWord = "\(word)\(randomChar)"
-//
-//        let checker = UITextChecker()
-//        let checkRange = NSMakeRange(0, scrambledWord.count)
-//
-//        let misspelledRange = checker.rangeOfMisspelledWord(in: scrambledWord, range: checkRange, startingAt: checkRange.location, wrap: true, language: "en_US")
-//        let arrGuessed = checker.guesses(forWordRange: misspelledRange, in: scrambledWord, language: "en_US")! as NSArray
-//        let predicate = NSPredicate.init(format: "SELF BEGINSWITH[c] %@", word)
-//        var arrayfiltered = arrGuessed.filtered(using: predicate)
-//        if(arrayfiltered.count == 0)
-//        {
-//
-//            let newPredicate = NSPredicate.init(format: "SELF BEGINSWITH[c] %@", word)
-//            arrayfiltered = arrGuessed.filtered(using: newPredicate)
-//        }
-//
-//        return arrayfiltered as! [String]
-//
-//    }
-    
-    var nowWord = ""
+
     override func keyPressed(_ key: Key) {
        
         let textDocumentProxy = self.textDocumentProxy
         let keyOutput = key.outputForCase(self.shiftState.uppercase())
-
+        
         
         if currentWord != nil {
-              
-//            let index = currentWord!.index(currentWord!.endIndex, offsetBy: -1)
-//            let prefix = currentWord![..<index]
 
             
+//            let textChecker = UITextChecker()
+//            let randomChar = String.init(format: "%ca", arc4random_uniform(26))
+//            let scrambledWord = "\(currentWord!)\(randomChar)"
             
-            let textChecker = UITextChecker()
-            let randomChar = String.init(format: "%ca", arc4random_uniform(26))
-            let scrambledWord = "\(currentWord!)\(randomChar)"
-            
-            let misspelledRange =
-                textChecker.rangeOfMisspelledWord(in: scrambledWord,
-                                                            range: NSRange(0..<scrambledWord.utf16.count),
-                                                            startingAt: 0,
-                                                            wrap: false,
-                                                            language: "en_US")
+//            let misspelledRange =
+//                textChecker.rangeOfMisspelledWord(in: scrambledWord,
+//                                                            range: NSRange(0..<scrambledWord.utf16.count),
+//                                                            startingAt: 0,
+//                                                            wrap: false,
+//                                                            language: "en_US")
             let predicate = NSPredicate(format: "SELF contains %@", currentWord!)
             
-            let allWords = defaultsToKeyboard?.array(forKey: words)
+            
             let arrayfiltered = allWords!.filter { predicate.evaluate(with: $0) }
           
             
@@ -110,7 +78,7 @@ class Catboard: KeyboardViewController {
                 else if arrayfiltered.count == 1 {
                     catboardBanner?.suggestion_1?.setTitle(arrayfiltered.first as! String, for: .normal)
                     catboardBanner?.suggestion_2?.setTitle(arrayfiltered.first as! String, for: .normal)
-                    catboardBanner?.suggestion_3?.setTitle(arrayfiltered.first as! String, for: .normal)
+                    catboardBanner?.suggestion_3?.setTitle((arrayfiltered.first as! String), for: .normal)
                 }
 //            if misspelledRange.location != NSNotFound,
 //                let Guess = textChecker.guesses(forWordRange: misspelledRange,
@@ -358,5 +326,8 @@ extension Catboard: listenSuggestionClick {
            textDocumentProxy.deleteBackward()
          }
          self.textDocumentProxy.insertText(suggestion)
+         self.catboardBanner?.suggestion_1?.setTitle("", for: .normal)
+         self.catboardBanner?.suggestion_2?.setTitle("", for: .normal)
+         self.catboardBanner?.suggestion_3?.setTitle("", for: .normal)
     }
 }

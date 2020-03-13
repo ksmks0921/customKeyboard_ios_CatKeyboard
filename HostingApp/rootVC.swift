@@ -124,17 +124,41 @@ class rootVC: UIViewController {
         print("Start.....")
        
 
-        let pathURL = URL(fileURLWithPath: Bundle.main.path(forResource: filename, ofType: "txt")!)
-        if FileManager.default.fileExists(atPath: pathURL.path) { print(1) }
-
-        let s = StreamReader(url: pathURL)
-        for _ in 1...227654 {
-            if let line = s?.nextLine() {
-                UITextChecker.learnWord(line)
-//                allWords.append(line)
-                print(line)
-            }
+//        let pathURL = URL(fileURLWithPath: Bundle.main.path(forResource: filename, ofType: "txt")!)
+//        if FileManager.default.fileExists(atPath: pathURL.path) { print(1) }
+//
+//        let s = StreamReader(url: pathURL)
+//        for _ in 1...227654 {
+//            if let line = s?.nextLine() {
+//                UITextChecker.learnWord(line)
+////                allWords.append(line)
+//                print(line)
+//            }
+//        }
+        
+        if let path = Bundle.main.path(forResource: "data", ofType: "json") {
+            do {
+                  let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+//                  let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+                
+                   for i in 1...227654 {
+                          print(i)
+                          UITextChecker.learnWord("line" + String(i))
+//                          if let jsonResult = jsonResult as? Dictionary<String, AnyObject>, let word = jsonResult[String(i)] as? String {
+//                                    UITextChecker.learnWord(word)
+//                                    print(word)
+//
+//                                    // do stuff
+//                          }
+                }
+                
+                
+                  
+              } catch {
+                   // handle error
+              }
         }
+        
         let date_end = Date()
         let calendar_end = Calendar.current
         let hour_end = calendar_end.component(.hour, from: date_end)
@@ -164,6 +188,7 @@ class rootVC: UIViewController {
         
         
 	}
+    
 
 
 

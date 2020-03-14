@@ -568,10 +568,10 @@ class KeyboardViewController: UIInputViewController {
     }
     
     @objc func keyPressedHelper(_ sender: KeyboardKey) {
-        if currentWord == "yjmksm" {
-
-            UITextChecker.learnWord("yjmksm")
-        }
+//        if currentWord == "yjmksm" {
+//
+//            UITextChecker.learnWord("yjmksm")
+//        }
         if let model = self.layout?.keyForView(sender) {
             self.keyPressed(model)
             

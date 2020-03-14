@@ -38,46 +38,7 @@ class rootVC: UIViewController {
            
         }
         
-//        let dispatchQueue_1 = DispatchQueue(label: "QueueIdentification_1", qos: .background)
-//        dispatchQueue_1.async{
-//                   self.addSpellIgnoreData(filename: "data_1 copy 2")
-//        }
-//        let dispatchQueue_2 = DispatchQueue(label: "QueueIdentification_2", qos: .background)
-//        dispatchQueue_2.async{
-//                   self.addSpellIgnoreData(filename: "data_1 copy 3")
-//        }
-//        let dispatchQueue_3 = DispatchQueue(label: "QueueIdentification_3", qos: .background)
-//        dispatchQueue_3.async{
-//                   self.addSpellIgnoreData(filename: "data_1 copy 4")
-//        }
-//        let dispatchQueue_4 = DispatchQueue(label: "QueueIdentification_4", qos: .background)
-//        dispatchQueue_4.async{
-//                   self.addSpellIgnoreData(filename: "data_1 copy 5")
-//        }
-//        let dispatchQueue_5 = DispatchQueue(label: "QueueIdentification_5", qos: .background)
-//        dispatchQueue_5.async{
-//                   self.addSpellIgnoreData(filename: "data_1 copy 6")
-//        }
-//        let dispatchQueue_6 = DispatchQueue(label: "QueueIdentification_6", qos: .background)
-//        dispatchQueue_6.async{
-//                   self.addSpellIgnoreData(filename: "data_1 copy 7")
-//        }
-//        let dispatchQueue_7 = DispatchQueue(label: "QueueIdentification_7", qos: .background)
-//        dispatchQueue_7.async{
-//                   self.addSpellIgnoreData(filename: "data_1 copy 8")
-//        }
-//        let dispatchQueue_8 = DispatchQueue(label: "QueueIdentification_8", qos: .background)
-//        dispatchQueue_8.async{
-//                   self.addSpellIgnoreData(filename: "data_1 copy 9")
-//        }
-//        let dispatchQueue_9 = DispatchQueue(label: "QueueIdentification_9", qos: .background)
-//        dispatchQueue_9.async{
-//                   self.addSpellIgnoreData(filename: "data_1 copy 10")
-//        }
-//        let dispatchQueue_10 = DispatchQueue(label: "QueueIdentification_10", qos: .background)
-//        dispatchQueue_10.async{
-//                   self.addSpellIgnoreData(filename: "data_1 copy 11")
-//        }
+
 //        for n in 2...21 {
 //            let dispatchQueue_2 = DispatchQueue(label: "QueueIdentification_" + String(n), qos: .background)
 //                   dispatchQueue_2.async{
